@@ -1,10 +1,10 @@
-import { Router } from 'express';
+// import { Router } from 'express';
 
-import * as authController from '../controllers/auth.js';
+// import * as authController from '../controllers/auth.js';
 
-import { ctrlWrapper } from '../utils/ctrlWrapper.js';
+// import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 
-import { validateBody } from '../utils/validateBody.js';
+// import { validateBody } from '../utils/validateBody.js';
 
 // import {
 //   authLoginSchema,
@@ -41,4 +41,4 @@ import { validateBody } from '../utils/validateBody.js';
 
 // authRouter.post('/logout', ctrlWrapper(authController.logoutController));
 
-export default authRouter;
+// export default authRouter;
