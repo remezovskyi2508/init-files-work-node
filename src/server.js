@@ -5,7 +5,7 @@ import cors from 'cors';
 import authRouter from './routers/auth.js';
 import contactsRouter from './routers/contacts.js';
 
-import dotenv from 'dotenv';
+import { getEnvVar } from './utils/getEnvVar.js';
 
 import { logger } from './middlewares/logger.js';
 
@@ -16,7 +16,7 @@ import { authenticate } from './middlewares/authenticate.js';
 import cookieParser from 'cookie-parser';
 import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
-dotenv.config();
+
 
 export const setupServer = () => {
   const app = express();
@@ -28,18 +28,20 @@ export const setupServer = () => {
   app.use(cookieParser());
 
   app.use(logger);
+  
+  // МІНЯЄМО ПІД НАШ ПРОЄКТ
 
-  app.use('/auth', authRouter);
+  // app.use('/auth', authRouter);
 
-  app.use('/contacts', authenticate, contactsRouter);
+  // app.use('/water', authenticate, contactsRouter);
 
-  app.use('/api-docs', swaggerDocs());
+  // app.use('/api-docs', swaggerDocs());
 
   app.use(notFoundHandler);
 
   app.use(errorHandler);
 
-  const port = Number(process.env.PORT || 3000);
+  const port = Number(getEnvVar('PORT' || 3000));
 
   app.listen(port, console.log(`Server is running on port ${port}`));
 };

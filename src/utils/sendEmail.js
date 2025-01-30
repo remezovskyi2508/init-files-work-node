@@ -1,10 +1,7 @@
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
+import { getEnvVar } from './getEnvVar';
 
-dotenv.config();
-
-const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM } =
-  process.env;
+const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM } = getEnvVar;
 
 const nodemailerConfig = {
   host: SMTP_HOST,
@@ -20,13 +17,6 @@ const nodemailerConfig = {
 };
 
 const transport = nodemailer.createTransport(nodemailerConfig);
-
-// const email = {
-//   from: SMTP_FROM, //'antonremezovskyi@gmail.com'
-//   to: 'bonkadatest@ukr.net',
-//   subject: 'Hello from Anton Remezovskyi',
-//   html: '<h1>Anton Remezovskyi second CHANCE!</h1>',
-// };
 
 export const sendEmail = (data) => {
   const email = { ...data, from: SMTP_FROM };

@@ -1,2 +1,2 @@
-# nodejs-hw-01
-Node.js: HW-1
+# nodejs-Project Water Tracker
+Node.js: Project Water Tracker
